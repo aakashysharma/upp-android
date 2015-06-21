@@ -30,7 +30,9 @@ public class spotifyAuth extends Activity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
+        Intent intent1 = new Intent(this, MainActivity.class);
+        startActivity(intent1);
         AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID,
                 AuthenticationResponse.Type.TOKEN,
                 REDIRECT_URI);
