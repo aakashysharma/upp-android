@@ -24,6 +24,7 @@ repositories {
     flatDir {
         dirs 'libs'
     }
+    maven { url 'http://clinker.47deg.com/nexus/content/groups/public' }
 }
 
 
@@ -35,4 +36,7 @@ dependencies {
 
     // This library handles music playback
     compile 'com.spotify.sdk:spotify-player:1.0.0-beta10@aar'
+    compile ('com.fortysevendeg.swipelistview:swipelistview:1.0-SNAPSHOT@aar') {
+        transitive = true
+    }
 }

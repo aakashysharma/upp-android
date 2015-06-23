@@ -1,12 +1,12 @@
 package com.example.gam3r.partyrocker;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     ListView currentSong,upcomingSongs;
     String[] currSong = {"Tum hi ho bandu"};
@@ -15,11 +15,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        currentSong= (ListView) findViewById(R.id.listview1);
-        upcomingSongs= (ListView) findViewById(R.id.listview2);
-        ArrayAdapter<String> currSongs = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,currSong);
+//        currentSong= (ListView) findViewById(R.id.listview1);
+        upcomingSongs= (ListView) findViewById(R.id.example_lv_list);
+//        ArrayAdapter<String> currSongs = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,currSong);
         ArrayAdapter<String> upcoming = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,upcomingSong);
-        currentSong.setAdapter(currSongs);
+//        currentSong.setAdapter(currSongs);
         upcomingSongs.setAdapter(upcoming);
     }
 

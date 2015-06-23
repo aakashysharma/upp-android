@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Song"
+        android:id="@+id/currentSongText" />
+    <com.example.gam3r.partyrocker.util.boayz.SwipeMenuListView
+        android:id="@+id/listView1"
+        android:layout_below="@id/currentSongText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upcoming Songs"
+        android:layout_below="@id/listView1"
+        android:id="@+id/upcomingText" />
+    <com.example.gam3r.partyrocker.util.boayz.SwipeMenuListView
+        android:id="@+id/listView2"
+        android:layout_below="@id/upcomingText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="45dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/changePreferences"
+        android:text="Set your preferences" />
+</RelativeLayout>

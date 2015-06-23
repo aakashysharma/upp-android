@@ -10,10 +10,8 @@ import com.spotify.sdk.android.authentication.AuthenticationRequest;
 import com.spotify.sdk.android.authentication.AuthenticationResponse;
 import com.spotify.sdk.android.player.Config;
 import com.spotify.sdk.android.player.ConnectionStateCallback;
-import com.spotify.sdk.android.player.Player;
 import com.spotify.sdk.android.player.PlayerNotificationCallback;
 import com.spotify.sdk.android.player.PlayerState;
-import com.spotify.sdk.android.player.Spotify;
 
 public class spotifyAuth extends Activity implements
         PlayerNotificationCallback, ConnectionStateCallback {
@@ -23,15 +21,15 @@ public class spotifyAuth extends Activity implements
     // TODO: Replace with your redirect URI
     private static final String REDIRECT_URI = "tk3-uni-android-app://callback";
 
-    private Player mPlayer;
+//    private Player mPlayer;
     // Request code that will be used to verify if the result comes from correct activity
 // Can be any integer
     private static final int REQUEST_CODE = 1337;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        Intent intent1 = new Intent(this, MainActivity.class);
+//        setContentView(R.layout.activity_list);
+        Intent intent1 = new Intent(this, demo.class);
         startActivity(intent1);
         AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID,
                 AuthenticationResponse.Type.TOKEN,
@@ -50,20 +48,22 @@ public class spotifyAuth extends Activity implements
         if (requestCode == REQUEST_CODE) {
             AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
             if (response.getType() == AuthenticationResponse.Type.TOKEN) {
+                finish();
                 Config playerConfig = new Config(this, response.getAccessToken(), CLIENT_ID);
-                mPlayer = Spotify.getPlayer(playerConfig, this, new Player.InitializationObserver() {
-                    @Override
-                    public void onInitialized(Player player) {
-                        mPlayer.addConnectionStateCallback(spotifyAuth.this);
-                        mPlayer.addPlayerNotificationCallback(spotifyAuth.this);
-                        mPlayer.play("spotify:track:2TpxZ7JUBn3uw46aR7qd6V");
-                    }
-
-                    @Override
-                    public void onError(Throwable throwable) {
-                        Log.e("MainActivity", "Could not initialize player: " + throwable.getMessage());
-                    }
-                });
+//                mPlayer = Spotify.getPlayer(playerConfig, this, new Player.InitializationObserver() {
+//                    @Override
+//                    public void onInitialized(Player player) {
+//                        mPlayer.addConnectionStateCallback(spotifyAuth.this);
+//                        mPlayer.addPlayerNotificationCallback(spotifyAuth.this);
+//                        mPlayer.play("spotify:track:2TpxZ7JUBn3uw46aR7qd6V");
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable throwable) {
+//                        Log.e("MainActivity", "Could not initialize player: " + throwable.getMessage());
+//                    }
+//                }
+//                );
             }
         }
     }
